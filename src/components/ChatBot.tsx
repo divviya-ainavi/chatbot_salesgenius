@@ -28,6 +28,23 @@ const ChatBot: React.FC = () => {
   }, [inputMessage]);
   const generateId = () => Math.random().toString(36).substr(2, 9);
 
+  const streamText = async (text: string, messageId: string) => {
+    const words = text.split(' ');
+    let currentText = '';
+
+    for (let i = 0; i < words.length; i++) {
+      currentText += (i > 0 ? ' ' : '') + words[i];
+
+      setMessages(prev => prev.map(msg =>
+        msg.id === messageId
+          ? { ...msg, content: currentText, isStreaming: i < words.length - 1 }
+          : msg
+      ));
+
+      await new Promise(resolve => setTimeout(resolve, 30 + Math.random() * 40));
+    }
+  };
+
   const sendMessage = async () => {
     if (!inputMessage.trim() || isLoading) return;
 
@@ -58,27 +75,32 @@ const ChatBot: React.FC = () => {
       }
 
       const data = await response.json();
+      const responseText = data?.[0].output || data?.[0]?.text || 'I apologize, but I received an empty response.';
 
+      const botMessageId = generateId();
       const botMessage: Message = {
-        id: generateId(),
+        id: botMessageId,
         type: 'bot',
-        content: data?.[0].output || data?.[0]?.text || 'I apologize, but I received an empty response.',
-        timestamp: new Date()
+        content: '',
+        timestamp: new Date(),
+        isStreaming: true
       };
 
       setMessages(prev => [...prev, botMessage]);
+      setIsLoading(false);
+
+      await streamText(responseText, botMessageId);
     } catch (error) {
       console.error('Error sending message:', error);
-      
+
       const errorMessage: Message = {
         id: generateId(),
         type: 'bot',
-        content: 'I apologize, but I encountered an error while processing your message. Please check if the API server is running on http://localhost:3000 and try again.',
+        content: 'I apologize, but I encountered an error while processing your message. Please check if the API server is running and try again.',
         timestamp: new Date()
       };
 
       setMessages(prev => [...prev, errorMessage]);
-    } finally {
       setIsLoading(false);
     }
   };
@@ -150,7 +172,7 @@ const ChatBot: React.FC = () => {
                     </div>
                     <div className="flex-1 min-w-0 bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50">
                       <div className="prose prose-gray max-w-none">
-                        <ReactMarkdown 
+                        <ReactMarkdown
                           components={{
                             h1: ({ children }) => <h1 className="text-xl font-bold mb-3 text-gray-800">{children}</h1>,
                             h2: ({ children }) => <h2 className="text-lg font-semibold mb-2 text-gray-800">{children}</h2>,
@@ -174,6 +196,9 @@ const ChatBot: React.FC = () => {
                         >
                           {message.content}
                         </ReactMarkdown>
+                        {message.isStreaming && (
+                          <span className="inline-block w-2 h-5 bg-blue-500 ml-1 animate-pulse"></span>
+                        )}
                       </div>
                     </div>
                   </div>

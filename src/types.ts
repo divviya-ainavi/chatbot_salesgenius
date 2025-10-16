@@ -3,6 +3,7 @@ export interface Message {
   type: 'user' | 'bot';
   content: string;
   timestamp: Date;
+  isStreaming?: boolean;
 }
 
 export interface ApiResponse {
