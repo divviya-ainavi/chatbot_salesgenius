@@ -111,7 +111,7 @@ const ChatBot: React.FC = () => {
                 <Sparkles className="w-7 h-7 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-white">SG Assistant</h1>
+                <h1 className="text-2xl font-bold text-white">Assistant</h1>
                 <p className="text-blue-100">Your intelligent companion for any question</p>
               </div>
             </div>
