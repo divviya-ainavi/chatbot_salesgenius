@@ -43,7 +43,7 @@ const ChatBot: React.FC = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('https://salesgenius.ainavi.co.uk/n8n/webhook/chat', {
+      const response = await fetch('https://salesgenius.ainavi.co.uk/n8n/webhook/Chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
