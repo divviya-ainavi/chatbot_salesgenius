@@ -196,9 +196,6 @@ const ChatBot: React.FC = () => {
                         >
                           {message.content}
                         </ReactMarkdown>
-                        {message.isStreaming && (
-                          <span className="inline-block w-2 h-5 bg-blue-500 ml-1 animate-pulse"></span>
-                        )}
                       </div>
                     </div>
                   </div>
