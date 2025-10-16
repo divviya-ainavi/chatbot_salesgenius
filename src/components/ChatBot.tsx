@@ -62,7 +62,7 @@ const ChatBot: React.FC = () => {
       const botMessage: Message = {
         id: generateId(),
         type: 'bot',
-        content: data?.[0].response || data?.[0]?.text || 'I apologize, but I received an empty response.',
+        content: data?.[0].output || data?.[0]?.text || 'I apologize, but I received an empty response.',
         timestamp: new Date()
       };
 
