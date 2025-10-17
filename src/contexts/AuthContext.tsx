@@ -76,16 +76,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const signUp = async (email: string, password: string, username: string) => {
     try {
-      const { data: existingProfile } = await supabase
-        .from('profiles')
-        .select('username')
-        .eq('username', username)
-        .maybeSingle();
-
-      if (existingProfile) {
-        return { error: new Error('Username already taken') };
-      }
-
       const { error } = await supabase.auth.signUp({
         email,
         password,
@@ -100,7 +90,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       if (error) return { error };
       return { error: null };
     } catch (error) {
-      return { error: error as Error };
+      const err = error as Error;
+      if (err.message?.includes('duplicate') || err.message?.includes('unique')) {
+        return { error: new Error('Username or email already taken') };
+      }
+      return { error: err };
     }
   };
 
