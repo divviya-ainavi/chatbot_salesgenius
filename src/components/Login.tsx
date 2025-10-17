@@ -111,7 +111,7 @@ const Login: React.FC<LoginProps> = ({ onSwitchToSignUp }) => {
 
           {/* <div className="mt-6 text-center">
             <p className="text-gray-600 text-sm">
-              Don't have an account?{' '}
+              Don't have an account?{" "}
               <button
                 onClick={onSwitchToSignUp}
                 className="text-blue-600 hover:text-blue-700 font-semibold transition-colors"

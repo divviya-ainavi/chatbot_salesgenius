@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import ChatBot from './components/ChatBot';
-import Login from './components/Login';
-import SignUp from './components/SignUp';
-import { AuthProvider, useAuth } from './contexts/AuthContext';
-import { LogOut, Loader2 } from 'lucide-react';
+import React, { useState } from "react";
+import ChatBot from "./components/ChatBot";
+import Login from "./components/Login";
+import SignUp from "./components/SignUp";
+import { AuthProvider, useAuth } from "./contexts/AuthContext";
+import { LogOut, Loader2 } from "lucide-react";
 
 const AuthenticatedApp: React.FC = () => {
   const { user, profile, loading, signOut } = useAuth();
@@ -34,7 +34,11 @@ const AuthenticatedApp: React.FC = () => {
         {profile && (
           <div className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-xl shadow-lg border border-white/50">
             <p className="text-sm text-gray-600">
-              Welcome, <span className="font-semibold text-gray-800">{profile.username}</span>
+              Welcome,{" "}
+              <span className="font-semibold text-gray-800">
+                {profile.username.charAt(0).toUpperCase() +
+                  profile.username.slice(1)}
+              </span>
             </p>
           </div>
         )}
