@@ -1,25 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import LoginPage from './pages/LoginPage';
-import SignUpPage from './pages/SignUpPage';
-import ChatBotPage from './pages/ChatBotPage';
+import React, { useState } from 'react';
+import ChatBot from './components/ChatBot';
+import Login from './components/Login';
+import SignUp from './components/SignUp';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
-import { Loader2 } from 'lucide-react';
-
-type Page = 'login' | 'signup' | 'chatbot';
+import { LogOut, Loader2 } from 'lucide-react';
 
 const AuthenticatedApp: React.FC = () => {
-  const { user, loading } = useAuth();
-  const [currentPage, setCurrentPage] = useState<Page>('login');
-
-  useEffect(() => {
-    if (user) {
-      setCurrentPage('chatbot');
-    } else {
-      if (currentPage === 'chatbot') {
-        setCurrentPage('login');
-      }
-    }
-  }, [user]);
+  const { user, profile, loading, signOut } = useAuth();
+  const [showSignUp, setShowSignUp] = useState(false);
 
   if (loading) {
     return (
@@ -33,13 +21,34 @@ const AuthenticatedApp: React.FC = () => {
   }
 
   if (!user) {
-    if (currentPage === 'signup') {
-      return <SignUpPage onNavigateToLogin={() => setCurrentPage('login')} />;
-    }
-    return <LoginPage onNavigateToSignUp={() => setCurrentPage('signup')} />;
+    return showSignUp ? (
+      <SignUp onSwitchToLogin={() => setShowSignUp(false)} />
+    ) : (
+      <Login onSwitchToSignUp={() => setShowSignUp(true)} />
+    );
   }
 
-  return <ChatBotPage />;
+  return (
+    <div className="relative">
+      <div className="absolute top-4 right-4 z-50 flex items-center space-x-4">
+        {profile && (
+          <div className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-xl shadow-lg border border-white/50">
+            <p className="text-sm text-gray-600">
+              Welcome, <span className="font-semibold text-gray-800">{profile.username}</span>
+            </p>
+          </div>
+        )}
+        <button
+          onClick={signOut}
+          className="bg-white/90 backdrop-blur-sm hover:bg-red-50 text-gray-700 hover:text-red-600 px-4 py-2 rounded-xl shadow-lg border border-white/50 transition-all duration-300 flex items-center space-x-2"
+        >
+          <LogOut className="w-4 h-4" />
+          <span className="text-sm font-medium">Sign Out</span>
+        </button>
+      </div>
+      <ChatBot />
+    </div>
+  );
 };
 
 function App() {
