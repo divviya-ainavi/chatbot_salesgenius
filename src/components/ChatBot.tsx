@@ -123,18 +123,18 @@ const ChatBot: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+    <div className="flex flex-col h-screen bg-gradient-to-br from-slate-50 via-gray-50 to-blue-50">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 shadow-lg">
-        <div className="max-w-4xl mx-auto px-6 py-6">
+      <div className="bg-white border-b border-gray-200 shadow-sm">
+        <div className="max-w-4xl mx-auto px-6 py-5">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <div className="bg-white/20 backdrop-blur-sm p-3 rounded-2xl shadow-lg">
-                <Sparkles className="w-7 h-7 text-white" />
+              <div className="bg-blue-600 p-2.5 rounded-xl shadow-sm">
+                <Sparkles className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-white">Assistant</h1>
-                <p className="text-blue-100">Your intelligent companion for any question</p>
+                <h1 className="text-xl font-semibold text-gray-900">Assistant</h1>
+                <p className="text-sm text-gray-500">Your intelligent companion for any question</p>
               </div>
             </div>
           </div>
