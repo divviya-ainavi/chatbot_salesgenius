@@ -183,7 +183,7 @@ const ChatBot: React.FC = () => {
                             li: ({ children }) => <li className="leading-relaxed">{children}</li>,
                             strong: ({ children }) => <strong className="font-semibold text-gray-800">{children}</strong>,
                             code: ({ children }) => (
-                              <code className="bg-gradient-to-r from-pink-100 to-purple-100 px-2 py-1 rounded text-sm font-mono text-purple-800 border border-purple-200">
+                              <code className="bg-gradient-to-r from-blue-50 to-cyan-50 px-2 py-1 rounded text-sm font-mono text-blue-800 border border-blue-200">
                                 {children}
                               </code>
                             ),
