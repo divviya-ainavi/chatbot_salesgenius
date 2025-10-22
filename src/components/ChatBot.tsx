@@ -193,7 +193,7 @@ const ChatBot: React.FC = () => {
             <div key={message.id} className="mb-8">
               {message.type === "user" ? (
                 <div className="flex justify-end">
-                  <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-2xl px-6 py-3 max-w-2xl shadow-lg">
+                  <div className="text-white rounded-2xl px-6 py-3 max-w-2xl shadow-lg" style={{ background: 'linear-gradient(to right, #1ab8ff, #5acf66)' }}>
                     <p className="whitespace-pre-wrap break-words">
                       {message.content}
                     </p>
