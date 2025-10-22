@@ -147,9 +147,11 @@ const ChatBot: React.FC = () => {
         <div className="max-w-4xl mx-auto px-6 py-5">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <div className="bg-blue-600 p-2.5 rounded-xl shadow-sm">
-                <Sparkles className="w-6 h-6 text-white" />
-              </div>
+              <img
+                src="/Picture1 copy copy.png"
+                alt="Bravura AI Logo"
+                className="h-12 w-auto"
+              />
               <div>
                 <h1 className="text-xl font-semibold text-gray-900">
                   Assistant Partner
