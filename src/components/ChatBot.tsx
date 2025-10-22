@@ -352,7 +352,13 @@ const ChatBot: React.FC = () => {
             <button
               onClick={sendMessage}
               disabled={!inputMessage.trim() || isLoading}
-              className="absolute right-3 bottom-3 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white p-3 rounded-xl focus:ring-4 focus:ring-blue-500/20 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl"
+              className="absolute right-3 bottom-3 text-white p-3 rounded-xl focus:ring-4 focus:ring-blue-500/20 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl"
+              style={{
+                background: 'linear-gradient(to right, #1ab8ff, #5acf66)',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.background = 'linear-gradient(to right, #0ea5e9, #4ade80)'}
+              onMouseLeave={(e) => e.currentTarget.style.background = 'linear-gradient(to right, #1ab8ff, #5acf66)'}
             >
               <Send className="w-5 h-5" />
             </button>
