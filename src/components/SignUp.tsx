@@ -71,9 +71,11 @@ const SignUp: React.FC<SignUpProps> = ({ onSwitchToLogin }) => {
       <div className="w-full max-w-md">
         <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-8 border border-white/50">
           <div className="flex justify-center mb-6">
-            <div className="bg-gradient-to-r from-teal-500 to-cyan-600 p-4 rounded-2xl shadow-lg">
-              <UserPlus className="w-8 h-8 text-white" />
-            </div>
+            <img
+              src="/chatbotlogo (1).png"
+              alt="Bravura AI Logo"
+              className="h-16 w-auto"
+            />
           </div>
 
           <h2 className="text-3xl font-bold text-center text-gray-800 mb-2">Create Account</h2>
