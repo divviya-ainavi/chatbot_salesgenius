@@ -309,16 +309,16 @@ const ChatBot: React.FC = () => {
                   <div className="flex items-center space-x-3">
                     <div className="flex space-x-1">
                       <div
-                        className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full animate-bounce"
-                        style={{ animationDelay: "0ms" }}
+                        className="w-2 h-2 rounded-full animate-bounce"
+                        style={{ animationDelay: "0ms", backgroundColor: "#5acf66" }}
                       ></div>
                       <div
-                        className="w-2 h-2 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full animate-bounce"
-                        style={{ animationDelay: "150ms" }}
+                        className="w-2 h-2 rounded-full animate-bounce"
+                        style={{ animationDelay: "150ms", backgroundColor: "#1ab8ff" }}
                       ></div>
                       <div
-                        className="w-2 h-2 bg-gradient-to-r from-pink-500 to-red-600 rounded-full animate-bounce"
-                        style={{ animationDelay: "300ms" }}
+                        className="w-2 h-2 rounded-full animate-bounce"
+                        style={{ animationDelay: "300ms", backgroundColor: "#5acf66" }}
                       ></div>
                     </div>
                     <span className="text-gray-600 text-sm">
