@@ -39,7 +39,7 @@ const Login: React.FC<LoginProps> = ({ onSwitchToSignUp }) => {
         <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-8 border border-white/50">
           <div className="flex justify-center mb-6">
             <img
-              src="/chatbotlogo (1).png"
+              src="/chatbotlogo (1) copy.png"
               alt="Bravura AI Logo"
               className="h-16 w-auto"
             />

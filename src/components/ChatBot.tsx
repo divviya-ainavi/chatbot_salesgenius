@@ -148,7 +148,7 @@ const ChatBot: React.FC = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
               <img
-                src="/chatbotlogo (1).png"
+                src="/chatbotlogo (1) copy.png"
                 alt="Bravura AI Logo"
                 className="h-12 w-auto"
               />
