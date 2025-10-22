@@ -152,7 +152,7 @@ const ChatBot: React.FC = () => {
               </div>
               <div>
                 <h1 className="text-xl font-semibold text-gray-900">
-                  Assistant
+                  Assistant Partner
                 </h1>
                 <p className="text-sm text-gray-500">
                   Your intelligent companion for any question
@@ -315,7 +315,7 @@ const ChatBot: React.FC = () => {
                       ></div>
                     </div>
                     <span className="text-gray-600 text-sm">
-                      AI is thinking...
+                      Bravura AI Partner is thinking...
                     </span>
                   </div>
                 </div>
