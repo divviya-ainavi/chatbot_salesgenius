@@ -154,7 +154,7 @@ const ChatBot: React.FC = () => {
               />
               <div>
                 <h1 className="text-xl font-semibold text-gray-900">
-                  Bravura-AI Partner
+                  BRAVURA-AI Partner
                 </h1>
                 <p className="text-sm text-gray-500">
                   Your intelligent companion for any question
@@ -170,14 +170,14 @@ const ChatBot: React.FC = () => {
         <div className="max-w-4xl mx-auto px-6 py-8">
           {messages.length === 0 && (
             <div className="flex flex-col items-center justify-center h-full text-center py-20">
-              <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-4 rounded-3xl mb-6 shadow-xl">
+              {/* <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-4 rounded-3xl mb-6 shadow-xl">
                 <Sparkles className="w-8 h-8 text-white" />
-              </div>
-              {/* <img
+              </div> */}
+              <img
                 src="/chatbotlogo (1) copy.png"
                 alt="Bravura AI Logo"
                 className="h-12 w-auto"
-              /> */}
+              />
               <h3 className="text-2xl font-bold text-gray-800 mb-3">
                 Welcome! How can I help you today?
               </h3>
